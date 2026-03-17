@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Void Chronicle</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Courier New", monospace;
+            background: black;
+            color: #b300ff;
+        }
+
+        header {
+            background: #050505;
+            padding: 15px;
+            border-bottom: 1px solid #b300ff;
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #0a0a0a;
+            border-right: 1px solid #b300ff;
+            padding: 10px;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+        }
+
+        .file {
+            padding: 6px;
+            cursor: pointer;
+        }
+
+        .file:hover {
+            background: #1a001f;
+        }
+
+        .main {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .code-box {
+            background: #050505;
+            border: 1px solid #b300ff;
+            padding: 10px;
+            white-space: pre-wrap;
+        }
+
+        .glitch {
+            color: #ff00ff;
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 1px 0 red; }
+            50% { text-shadow: -1px 0 blue; }
+            100% { text-shadow: 1px 0 red; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid #b300ff;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    🕳️ THE VOID CHRONICLE // ACCESS LEVEL: UNKNOWN
+</header>
+
+<div class="container">
+    
+    <div class="sidebar">
+        <h3>FILES</h3>
+        <div class="file" onclick="loadFile('log')">log_001.txt</div>
+        <div class="file" onclick="loadFile('void')">void_manifest.json</div>
+        <div class="file" onclick="loadFile('signal')">signal.exe</div>
+        <div class="file" onclick="loadFile('hidden')">???</div>
+    </div>
+
+    <div class="main">
+        <h2 id="title">Welcome</h2>
+        <div class="code-box" id="content">
+Select a file from the left panel...
+
+> The void is watching.
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    Created by LongHiHi // VoidOps-X Division
+</footer>
+
+<script>
+function loadFile(file) {
+    const title = document.getElementById("title");
+    const content = document.getElementById("content");
+
+    if (file === "log") {
+        title.innerText = "log_001.txt";
+        content.innerText =
+`[ENTRY 001]
+We opened something we shouldn't have.
+
+The signal came first.
+Then the silence.
+
+Now it whispers.`;
+    }
+
+    if (file === "void") {
+        title.innerText = "void_manifest.json";
+        content.innerText =
+`{
+  "status": "unstable",
+  "origin": "unknown",
+  "signal_strength": "∞",
+  "warning": "DO NOT PROCEED"
+}`;
+    }
+
+    if (file === "signal") {
+        title.innerText = "signal.exe";
+        content.innerHTML =
+`<span class="glitch">RUNNING...</span>
+
+> CONNECTION ESTABLISHED
+> YOU ARE NOT ALONE`;
+    }
+
+    if (file === "hidden") {
+        title.innerText = "???";
+        content.innerHTML =
+`<span class="glitch">
+YOU WERE NOT SUPPOSED TO FIND THIS
+
+IP TRACKING ENABLED...
+JUST KIDDING :)
+
+OR AM I?
+</span>`;
+    }
+}
+</script>
+
+</body>
+</html>
